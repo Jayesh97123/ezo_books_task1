@@ -1,0 +1,54 @@
+<div class="container">
+    <h2>Current Available Denomination in Machine</h2>
+    <form [formGroup]="atmForm">
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <td>2000</td>
+                    <td>{{depositObject.r2000}}</td>
+                    <td>|</td>
+                    <td><input type="number" formControlName="r2000" placeholder="0"></td>
+                </tr>
+                <tr>
+                    <td>500</td>
+                    <td>{{depositObject.r500}}</td>
+                    <td>|</td>
+                    <td><input type="number" formControlName="r500" placeholder="0"></td>
+                </tr>
+                <tr>
+                    <td>200</td>
+                    <td>{{depositObject.r200}}</td>
+                    <td>|</td>
+                    <td><input type="number" formControlName="r200" placeholder="0"></td>
+                </tr>
+                <tr>
+                    <td>100</td>
+                    <td>{{depositObject.r100}}</td>
+                    <td>|</td>
+                    <td><input type="number" formControlName="r100" placeholder="0"></td>
+                </tr>
+                <tr>
+                    <td>Total</td>
+                    <td>{{depositObject.r2000 * 2000 + depositObject.r500 * 500 + depositObject.r200 * 200 + depositObject.r100 * 100}}</td>
+                    <td>|</td>
+                    <td><button class="btn btn-primary" (click)="updateDepositObject(atmForm.value)">Deposit</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" #withdrawalAmount placeholder="Enter amount for withdrawal" aria-label="Enter amount for withdrawal" aria-describedby="button-addon2">
+        <button class="btn btn-success" type="button" id="button-addon2" (click)="getWithdraw(withdrawalAmount.value)">Withdraw!</button>
+    </div>
+    <h2>Log</h2>
+    <div *ngFor="let log of logArray">
+        <div class="card {{log.style}}">
+            <div class="card-body">
+              <blockquote class="blockquote mb-0">
+                <p>{{log?.title}} {{log?.amount ? '['+log?.amount+']' : ''}} {{log?.title != 'Cannot Withdraw' ? '2000:'+log?.r2000 : ''}} {{log?.title != 'Cannot Withdraw' ? '500:'+log?.r500 : ''}} {{log?.title != 'Cannot Withdraw' ? '200:'+log?.r200 : ''}} {{log?.title != 'Cannot Withdraw' ? '100:'+log?.r100 : ''}}</p>
+                <small>{{log.date}}</small>
+              </blockquote>
+            </div>
+        </div>
+    </div>
+</div>

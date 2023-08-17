@@ -1,0 +1,20 @@
+.container { 
+    background-color: #F2F2F2;
+    padding: 10px;
+    small {
+        font-size: 85%;
+    }
+    table {
+        tr td {
+            width: 20%;
+            input {
+                border: none;
+                border-bottom: 1px solid #3498db;
+                background: none;
+            }
+        }
+        tr td:nth-child(1) {
+            font-weight: 600;
+        }
+    }
+}

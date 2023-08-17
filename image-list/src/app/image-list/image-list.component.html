@@ -1,0 +1,22 @@
+<div class="image-list" *ngIf="!loader">
+    <nav>
+        <img src="assets/images/list.svg" alt="list">
+        <h1>Shrine</h1>
+        <img src="assets/images/search.svg" alt="list">
+    </nav>
+    <main>
+        <div class="card"  *ngFor="let data of imageData.items" style="width: 18rem;">
+            <img src="{{data.url}}" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{data.itemName}}</h5>
+              <p class="card-text">{{data.itemPrice | currency}}</p>
+            </div>
+        </div>
+    </main>
+</div>
+
+<div class="text-center loader" *ngIf="loader">
+    <div class="spinner-border" role="status">
+      <span class="sr-only"></span>
+    </div>
+</div>
