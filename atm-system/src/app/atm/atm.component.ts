@@ -64,28 +64,28 @@ export class AtmComponent {
     if (this.depositObject.r2000 > 0 && val >= 2000) {
       do {
         ++r2000;
-        val = val - 2000;
+        val -= 2000;
         withdraw = true;
       } while (val >= 2000 && r2000 < this.depositObject.r2000);
     }
     if (this.depositObject.r500 > 0 && val >= 500) {
       do {
         ++r500;
-        val = val - 500;
+        val -= 500;
         withdraw = true;
       } while (val >= 500 && r500 < this.depositObject.r500);
     }
     if (this.depositObject.r200 > 0 && val >= 200) {
       do {
         ++r200;
-        val = val - 200;
+        val -= 200;
         withdraw = true;
       } while (val >= 200 && r200 < this.depositObject.r200);
     }
     if (this.depositObject.r100 > 0 && val >= 100) {
       do {
         ++r100;
-        val = val - 100;
+        val -= 100;
         withdraw = true;
       } while (val >= 100 && r100 < this.depositObject.r100);
     }
@@ -105,10 +105,10 @@ export class AtmComponent {
         r100: r100,
         date: new Date(),
       });
-      this.depositObject.r2000 = this.depositObject.r2000 - r2000;
-      this.depositObject.r500 = this.depositObject.r500 - r500;
-      this.depositObject.r200 = this.depositObject.r200 - r200;
-      this.depositObject.r100 = this.depositObject.r100 - r100;
+      this.depositObject.r2000 -= r2000;
+      this.depositObject.r500 -= r500;
+      this.depositObject.r200 -= r200;
+      this.depositObject.r100 -= r100;
     } else {
       this.logArray.unshift({
         title: 'Cannot Withdraw',
