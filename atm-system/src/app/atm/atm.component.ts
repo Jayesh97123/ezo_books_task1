@@ -33,17 +33,22 @@ export class AtmComponent {
 
   updateDepositObject(val: any) {
     console.log(val);
-    this.depositObject.r2000 = val.r2000 == '' ? 0 : val.r2000;
-    this.depositObject.r500 = val.r500 == '' ? 0 : val.r500;
-    this.depositObject.r200 = val.r200 == '' ? 0 : val.r200;
-    this.depositObject.r100 = val.r100 == '' ? 0 : val.r100;
+    let r2000D = val.r2000 == '' || val.r2000 == null ? 0 : val.r2000;
+    let r500D = val.r500 == '' || val.r500 == null ? 0 : val.r500;
+    let r200D = val.r200 == '' || val.r200 == null ? 0 : val.r200;
+    let r100D = val.r100 == '' || val.r100 == null ? 0 : val.r100;
+    this.depositObject.r2000 += r2000D;
+    this.depositObject.r500 += r500D;
+    this.depositObject.r200 += r200D;
+    this.depositObject.r100 += r100D;
+
     this.logArray.unshift({
       title: 'Deposit',
       style: 'alert alert-info',
-      r2000: this.depositObject.r2000,
-      r500: this.depositObject.r500,
-      r200: this.depositObject.r200,
-      r100: this.depositObject.r100,
+      r2000: r2000D,
+      r500: r500D,
+      r200: r200D,
+      r100: r100D,
       date: new Date(),
     });
     this.atmForm.reset();
