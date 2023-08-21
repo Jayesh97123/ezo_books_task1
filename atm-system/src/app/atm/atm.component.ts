@@ -57,32 +57,32 @@ export class AtmComponent {
     let r100 = 0;
     let withdraw = false;
     if (this.depositObject.r2000 > 0 && val >= 2000) {
-      while (val >= 2000 && val % 2000 >= 0) {
+      do {
         ++r2000;
         val = val - 2000;
         withdraw = true;
-      }
+      } while (val >= 2000 && r2000 < this.depositObject.r2000);
     }
     if (this.depositObject.r500 > 0 && val >= 500) {
-      while (val >= 500 && val % 500 >= 0) {
+      do {
         ++r500;
         val = val - 500;
         withdraw = true;
-      }
+      } while (val >= 500 && r500 < this.depositObject.r500);
     }
     if (this.depositObject.r200 > 0 && val >= 200) {
-      while (val >= 200 && val % 200 >= 0) {
+      do {
         ++r200;
         val = val - 200;
         withdraw = true;
-      }
+      } while (val >= 200 && r200 < this.depositObject.r200);
     }
     if (this.depositObject.r100 > 0 && val >= 100) {
-      while (val >= 100 && val % 100 >= 0) {
+      do {
         ++r100;
         val = val - 100;
         withdraw = true;
-      }
+      } while (val >= 100 && r100 < this.depositObject.r100);
     }
 
     if (val > 0) {
